@@ -109,7 +109,7 @@ export const renameNote = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Duplicate Note
+// Duplicate Note
 export const duplicateNote = async (req: Request, res: Response) => {
   try {
     const { noteId } = req.params;
@@ -130,7 +130,7 @@ export const duplicateNote = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Copy Note to Another Folder
+//Copy Note to Another Folder
 export const copyNote = async (req: Request, res: Response) => {
   try {
     const { noteId } = req.params;
