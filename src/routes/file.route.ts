@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { deleteFile, getImageStats, getPdfStats, getUserFiles, uploadFile, uploadNote } from "../controller/file.controller";
+import { copyFile, deleteFile, duplicateFile, getFilesByDate, getImageStats, getPdfStats, getUserFiles, markFavorite, renameFile, restoreFile, softDeleteFile, uploadFile, uploadNote } from "../controller/file.controller";
 
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
@@ -22,5 +22,17 @@ router.get("/user/:userId", getUserFiles);
 
 // Delete file
 router.delete("/delete/:fileId", deleteFile);
+
+
+router.put("/rename/:fileId", renameFile);
+router.post("/duplicate/:fileId/:userId", duplicateFile);
+router.post("/copy", copyFile);
+// router.get("/share/:fileId", shareFile);
+router.put("/favorite/:fileId", markFavorite);
+router.put("/soft-delete/:fileId", softDeleteFile);
+router.put("/restore/:fileId", restoreFile);
+
+router.get("/files-by-date/:userId/:date", getFilesByDate);
+
 
 export default router;
