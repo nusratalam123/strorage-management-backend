@@ -9,6 +9,8 @@ interface IFile extends Document {
   cloudinaryId?: string;
   content?: string; // Only for notes
   folderId?: mongoose.Schema.Types.ObjectId | null;
+  favorite: boolean;
+  isDeleted: boolean;
   createdAt: Date;
 }
 
@@ -21,6 +23,8 @@ const FileSchema = new Schema<IFile>({
   cloudinaryId: { type: String },
   content: { type: String }, // For notes
   folderId: { type: Schema.Types.ObjectId, ref: "Folder", default: null },
+  favorite: { type: Boolean, default: false },
+  isDeleted: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
 });
 
