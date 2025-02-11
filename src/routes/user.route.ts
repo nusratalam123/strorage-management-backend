@@ -12,6 +12,7 @@ import {
 
 const router = Router();
 
+//for admin panel
 //get all users
 router.get("/all", getAllUsers);
 
