@@ -1,6 +1,20 @@
 import express from "express";
 import multer from "multer";
-import { copyFile, deleteFile, duplicateFile, getFilesByDate, getImageStats, getPdfStats, getUserFiles, markFavorite, renameFile, restoreFile, softDeleteFile, uploadFile, uploadNote } from "../controller/file.controller";
+import { copyFile, 
+    deleteFile, 
+    duplicateFile, 
+    getFilesByDate, 
+    getImageStats, 
+    getPdfStats, 
+    getSingleImage, 
+    getSingleNote, 
+    getSinglePdf, 
+    getUserFiles, 
+    markFavorite, 
+    renameFile, 
+    restoreFile, 
+    softDeleteFile, 
+    uploadFile } from "../controller/file.controller";
 
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
@@ -8,14 +22,20 @@ const upload = multer({ dest: "uploads/" });
 //upload image/pdf both in same route
 router.post("/upload", upload.single("file"), uploadFile);
 
-router.post("/upload-note", uploadNote);
-
-
 //Get all images count, storage usage, and all images in the single route
 router.get("/images/stats/:userId", getImageStats);
 
 //Get all PDFs count, storage usage, and all pdf in single route
 router.get("/pdfs/stats/:userId", getPdfStats);
+
+//Get single image
+router.get("/single/image/:userId/:fileId", getSingleImage);
+
+//Get single pdf
+router.get("/single/pdf/:userId/:fileId", getSinglePdf);
+
+//Get single pdf
+router.get("/single/note/:userId/:fileId", getSingleNote);
 
 // Get user files
 router.get("/user/:userId", getUserFiles);

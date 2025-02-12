@@ -50,27 +50,6 @@ export const uploadFile = async (req: Request, res: Response) => {
   }
 };
 
-// Upload Note
-export const uploadNote = async (req: Request, res: Response) => {
-  try {
-    const { userId, name, content, folderId } = req.body;
-
-    const newNote = new File({
-      userId,
-      name,
-      type: "note",
-      content,
-      folderId: folderId || null,
-    });
-
-    await newNote.save();
-    res.status(201).json(newNote);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to save note", error });
-  }
-};
-
-
 //Get all images count, storage usage, and all images in the single route
 export const getImageStats = async (req: Request, res: Response) => {
     try {
@@ -118,6 +97,76 @@ export const getPdfStats = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error fetching PDF stats", error });
   }
 };
+
+//Get single image
+export const getSingleImage = async (req: Request, res: Response) => {
+    try {
+      const { userId,fileId } = req.params;
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ message: "User not found" });
+  
+      const images = await File.find({ userId:userId,_id:fileId, type: "image" });
+  
+      const imageCount = images.length;
+      const totalStorageUsed = images.reduce((acc, img) => acc + (img.size??0), 0);
+  
+      res.status(200).json({
+        message: "get single image fetched successfully",
+        imageCount,
+        totalStorageUsed,
+        images, 
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching image stats", error });
+    }
+  };
+
+  //get single pdf
+  export const getSinglePdf = async (req: Request, res: Response) => {
+    try {
+      const { userId,fileId } = req.params;
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ message: "User not found" });
+  
+      const images = await File.find({userId: userId,_id:fileId, type: "pdf" });
+  
+      const imageCount = images.length;
+      const totalStorageUsed = images.reduce((acc, img) => acc + (img.size??0), 0);
+  
+      res.status(200).json({
+        message: "get single pdf fetched successfully",
+        imageCount,
+        totalStorageUsed,
+        images, 
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching image stats", error });
+    }
+  };
+
+  //get single note
+  export const getSingleNote = async (req: Request, res: Response) => {
+    try {
+      const { userId,fileId } = req.params;
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ message: "User not found" });
+  
+      const images = await File.find({ userId:userId,_id:fileId, type: "note" });
+  
+      const imageCount = images.length;
+      const totalStorageUsed = images.reduce((acc, img) => acc + (img.size??0), 0);
+  
+      res.status(200).json({
+        message: "get single note fetched successfully",
+        imageCount,
+        totalStorageUsed,
+        images, 
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching image stats", error });
+    }
+  };
+
 
 //Get User Files
 export const getUserFiles = async (req: Request, res: Response) => {
