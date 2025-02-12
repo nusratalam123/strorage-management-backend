@@ -17,7 +17,9 @@ import { copyFile,
     uploadFile } from "../controller/file.controller";
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
+// const upload = multer({ dest: "uploads/" });
+
+const upload = multer({ storage: multer.memoryStorage() });
 
 //upload image/pdf both in same route
 router.post("/upload", upload.single("file"), uploadFile);
