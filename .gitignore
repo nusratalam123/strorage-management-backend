@@ -1,4 +1,7 @@
 node_modules
 .env
-dist
+.env.local
+/dist
+bun.lockb
+package-lock.json
 .vercel
