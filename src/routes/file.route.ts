@@ -20,19 +20,34 @@ router.get("/pdfs/stats/:userId", getPdfStats);
 // Get user files
 router.get("/user/:userId", getUserFiles);
 
+// Get files by date
+router.get("/files-by-date/:userId/:date", getFilesByDate);
+
+// Rename file
+router.put("/rename/:fileId", renameFile);
+
+// Duplicate file
+router.post("/duplicate/:fileId/:userId", duplicateFile);
+
+// Copy file
+router.post("/copy", copyFile);
+
+// Share file
+// router.get("/share/:fileId", shareFile);
+
+// Mark file as favorite
+router.put("/favorite/:fileId", markFavorite);
+
+// Soft delete file
+router.put("/soft-delete/:fileId", softDeleteFile);
+
+// Restore file
+router.put("/restore/:fileId", restoreFile);
+
 // Delete file
 router.delete("/delete/:fileId", deleteFile);
 
 
-router.put("/rename/:fileId", renameFile);
-router.post("/duplicate/:fileId/:userId", duplicateFile);
-router.post("/copy", copyFile);
-// router.get("/share/:fileId", shareFile);
-router.put("/favorite/:fileId", markFavorite);
-router.put("/soft-delete/:fileId", softDeleteFile);
-router.put("/restore/:fileId", restoreFile);
-
-router.get("/files-by-date/:userId/:date", getFilesByDate);
 
 
 export default router;

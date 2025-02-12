@@ -5,6 +5,7 @@ import fileRoutes from "./../routes/file.route";
 import folderRoutes from "./../routes/folder.route";
 import noteRoutes from "./../routes/note.route";
 import favoriteRoutes from "./../routes/favorite.route";
+import settingRoute from "./../routes/setting.route";
 
 
 const router = Router();
@@ -21,6 +22,8 @@ router.use("/files", fileRoutes);
 router.use("/folders", folderRoutes);
 router.use("/notes", noteRoutes);
 router.use("/favorites", favoriteRoutes);
+router.use("/setting",settingRoute)
+
 
 // Handle not found
 router.use((req, res, next) => {
