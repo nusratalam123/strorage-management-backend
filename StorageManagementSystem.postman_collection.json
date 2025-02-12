@@ -1,0 +1,1332 @@
+{
+	"info": {
+		"_postman_id": "22c02022-3e69-4cfb-92f6-d48ef66201be",
+		"name": "StorageManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15092032",
+		"_collection_link": "https://craftycode.postman.co/workspace/nusrat-alam-Workspace~84e41a97-872f-4921-8cd7-47cc9e2715c1/collection/15092032-22c02022-3e69-4cfb-92f6-d48ef66201be?action=share&source=collection_link&creator=15092032"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"nusrat\",\n  \"email\": \"b190305045@cse.jnu.ac.bd\",\n  \"password\": \"password123\",\n  \"confirmPassword\":\"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"b190305045@cse.jnu.ac.bd\",\n  \"password\": \"password123\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogOut",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "resetPassword",
+			"item": [
+				{
+					"name": "SendOTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"b190305045@cse.jnu.ac.bd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/forget-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"b190305045@cse.jnu.ac.bd\",\n  \"newPassword\": \"password1234\",\n  \"confirmPassword\":\"password1234\"   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"b190305045@cse.jnu.ac.bd\",\n    \"otp\":\"494374\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "file",
+			"item": [
+				{
+					"name": "UploadFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "67a8cd6bd6f1bb9836d98b88",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "pdf",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1efe712d-0407-4ed0-ad18-bc8dea7fb62f"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/images/stats/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"images",
+								"stats",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/pdfs/stats/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"pdfs",
+								"stats",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RenameFile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newName\": \"NewFileName.pdf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/rename/67a8f29d829c33eecafebc5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"rename",
+								"67a8f29d829c33eecafebc5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CopyFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fileId\": \"67a9d54e46a9bc466936bee7\",\n  \"targetFolderId\": \"67a9ca176226c1c2ed45bb3f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/copy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"copy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DuplicateFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/duplicate/67a8f29d829c33eecafebc5b/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"duplicate",
+								"67a8f29d829c33eecafebc5b",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favoriteFile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/favorite/67a8f29d829c33eecafebc5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"favorite",
+								"67a8f29d829c33eecafebc5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SoftDelete(in trash has a file wnat to restore it)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getAllFileInASingleDay",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/files-by-date/67a8cd6bd6f1bb9836d98b88/2025-02-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"files-by-date",
+								"67a8cd6bd6f1bb9836d98b88",
+								"2025-02-10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SingleImage",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/single/image/67a8cd6bd6f1bb9836d98b88/67a8f220829c33eecafebc56",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"single",
+								"image",
+								"67a8cd6bd6f1bb9836d98b88",
+								"67a8f220829c33eecafebc56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSinglePdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/single/pdf/67a8cd6bd6f1bb9836d98b88/67a8f29d829c33eecafebc5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"single",
+								"pdf",
+								"67a8cd6bd6f1bb9836d98b88",
+								"67a8f29d829c33eecafebc5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleNote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/single/note/67a8cd6bd6f1bb9836d98b88/67a90c94d8ac301262158629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"single",
+								"note",
+								"67a8cd6bd6f1bb9836d98b88",
+								"67a90c94d8ac301262158629"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "note",
+			"item": [
+				{
+					"name": "UploadNote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "note",
+									"type": "file",
+									"src": "postman-cloud:///1efe7214-05eb-43e0-8329-c19672a1550c"
+								},
+								{
+									"key": "userId",
+									"value": "67a8cd6bd6f1bb9836d98b88",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/uploads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllNote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/all/stats/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"all",
+								"stats",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RenameNote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newName\": \"updated_note.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/rename/67a90c94d8ac301262158629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"rename",
+								"67a90c94d8ac301262158629"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DulicateNote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/duplicate/67a90c94d8ac301262158629/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"duplicate",
+								"67a90c94d8ac301262158629",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FavoriteNote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/favorite/67a90c94d8ac301262158629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"favorite",
+								"67a90c94d8ac301262158629"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CopyNote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/notes/copy/67a90c94d8ac301262158629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"notes",
+								"copy",
+								"67a90c94d8ac301262158629"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder",
+			"item": [
+				{
+					"name": "CreateFolder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"67a8cd6bd6f1bb9836d98b88\",\n    \"name\": \"Assignment1\",\n    \"parentFolder\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllFolder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/folders/stats/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"folders",
+								"stats",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RenameFolder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"folderId\": \"67a8f3c1829c33eecafebc5f\",\n    \"newName\": \"New Folder Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/rename",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DuplicatedFolder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"folderId\": \"67a8f3c1829c33eecafebc5f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/duplicate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"duplicate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CopyFolder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"folderId\": \"67a8f3da829c33eecafebc62\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/copy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"copy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FavoriteFolder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"folderId\":\"67a8f3da829c33eecafebc62\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/favorite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"folderId\":\"67a9b365490e2d79894fcacd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllFavoritFolder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/favorite/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"favorite",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TodayFolder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/folders/today-folder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"folders",
+								"today-folder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUploadFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/files/user/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"user",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckUserStorage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/user/storage/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"storage",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserProfile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"nusrat alam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/user/update-profile/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"update-profile",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorite",
+			"item": [
+				{
+					"name": "GetAllFavoriteThings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/all/67a8cd6bd6f1bb9836d98b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"all",
+								"67a8cd6bd6f1bb9836d98b88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newName\": \"assignment1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/rename/67a8f3da829c33eecafebc62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"rename",
+								"67a8f3da829c33eecafebc62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CopyFavoriteItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"destinationFolderId\": \"67a9c9586226c1c2ed45bb3a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/copy/67a8f3da829c33eecafebc62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"copy",
+								"67a8f3da829c33eecafebc62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DuplicateFavoriteItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/duplicate/67a8f3da829c33eecafebc62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"duplicate",
+								"67a8f3da829c33eecafebc62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFavoriteItem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/delete/67a8f3da829c33eecafebc62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"delete",
+								"67a8f3da829c33eecafebc62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnfavoriteFavoriteItem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/favorites/unfavorite/67ac578f33629c7e0a3a5cd4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"unfavorite",
+								"67ac578f33629c7e0a3a5cd4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Setting",
+			"item": [
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"b190305045@cse.jnu.ac.bd\",\n    \"newPassword\":\"password123\",\n    \"confirmPassword\":\"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/setting/changed-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"setting",
+								"changed-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TermsAndConditions\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/setting/terms-and-conditions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"setting",
+								"terms-and-conditions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "About-us",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/setting/about-us",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"setting",
+								"about-us"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrivacyPolicy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/setting/privacy-policy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"setting",
+								"privacy-policy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YThjZDZiZDZmMWJiOTgzNmQ5OGI4OCIsIm5hbWUiOiJudXNyYXQiLCJlbWFpbCI6ImIxOTAzMDUwNDVAY3NlLmpudS5hYy5iZCIsImlhdCI6MTczOTExNjAxOCwiZXhwIjoxNzQxNzA4MDE4fQ.YU8gl6FrEqvLVkTyTvTCEMztXObnLoXdF_5issv1R2U",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
