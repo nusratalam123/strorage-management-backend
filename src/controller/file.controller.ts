@@ -118,6 +118,7 @@ export const getPdfStats = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error fetching PDF stats", error });
   }
 };
+
 //Get User Files
 export const getUserFiles = async (req: Request, res: Response) => {
     try {
@@ -294,7 +295,7 @@ export const softDeleteFile = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Restore File from Trash
+//Restore File from Trash
 export const restoreFile = async (req: Request, res: Response) => {
   try {
     const { fileId } = req.params;
@@ -311,6 +312,7 @@ export const restoreFile = async (req: Request, res: Response) => {
   }
 };
 
+//Get Files by Date
 export const getFilesByDate = async (req: Request, res: Response) => {
   try {
     const { userId, date } = req.params;
