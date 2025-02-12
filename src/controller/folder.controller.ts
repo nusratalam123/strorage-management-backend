@@ -5,7 +5,7 @@ import File from "../model/file.model";
 import moment from "moment";
 
 
-// ✅ Convert bytes to GB function
+//Convert bytes to GB function
 const bytesToGB = (bytes: number) => (bytes / (1024 * 1024 * 1024)).toFixed(10);
 
 
